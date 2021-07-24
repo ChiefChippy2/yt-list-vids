@@ -28,7 +28,7 @@ def pl_vids(id: str) -> dict:
     }
     page_cur: requests.Response = requests.get(url, params)
     cur_json: dict = page_cur.json()
-    all_vids: list = cur_json['items']
+    all_vids: list[dict] = cur_json['items']
     while cur_json.get('nextPageToken'):
         params['pageToken'] = cur_json.get('nextPageToken')
         page_cur = requests.get(url, params)
