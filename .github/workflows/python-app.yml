@@ -32,6 +32,8 @@ jobs:
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide, but we'll allow 210 because who in their right mind would not do that
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=210 --statistics
     - name: Test with pytest
+      env:
+        KEY: Test
       run: |
         python3.9 test.py
         echo "Tests passed"
